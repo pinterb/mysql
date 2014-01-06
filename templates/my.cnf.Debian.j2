@@ -10,6 +10,10 @@ socket		= /var/run/mysqld/mysqld.sock
 [mysqld_safe]
 socket		= /var/run/mysqld/mysqld.sock
 nice		= 0
+{% if mysql_system_time_zone %}
+# system time zone 
+timezone = '{{ mysql_system_time_zone }}'
+{% endif %}
 
 [mysqld]
 user		= mysql
@@ -38,11 +42,6 @@ server-id               = {{ mysql_db_id }}
 # apply utf8
 character-set-server = utf8
 collation-server = utf8_unicode_ci
-{% endif %}
-
-{% if mysql_default_time_zone %}
-# time zone 
-default-time-zone = '{{ mysql_default_time_zone }}'
 {% endif %}
 
 {% if mysql_repl_role == 'master' %}

@@ -22,11 +22,6 @@ character-set-server = utf8
 collation-server = utf8_unicode_ci
 {% endif %}
 
-{% if mysql_default_time_zone %}
-# time zone 
-default-time-zone = '{{ mysql_default_time_zone }}'
-{% endif %}
-
 {% if mysql_repl_role == 'master' %}
 log_bin                 = mysql-bin
 expire_logs_days        = 10
@@ -62,5 +57,9 @@ innodb_thread_concurrency = {{ mysql_innodb_thread_concurrency }}
 [mysqld_safe]
 log-error=/var/log/mysqld.log
 pid-file=/var/run/mysqld/mysqld.pid
+{% if mysql_system_time_zone %}
+# system time zone 
+timezone = '{{ mysql_system_time_zone }}'
+{% endif %}
 
 
