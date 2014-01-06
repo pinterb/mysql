@@ -63,7 +63,7 @@ binlog_ignore_db        = {{ i.name }}
 {% endfor %}
 {% endif %}
 
-{% if mysql_repl_role|lower == 'innodb' %}
+{% if mysql_default_storage_engine|lower == 'innodb' %}
 #####################################
 ######### INNODB SETTINGS  ##########
 #####################################
