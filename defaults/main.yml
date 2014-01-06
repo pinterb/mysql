@@ -25,7 +25,9 @@ mysql_db_id: 7
 mysql_utf8: True
 mysql_system_time_zone: "UTC"
 
-mysql_default_storage_engine: InnoDB
+mysql_default_storage_engine: MyISAM 
+
+# InnoDB Storage Engine
 mysql_innodb_data_file_path: ibdata1:10M:autoextend
 mysql_innodb_buffer_pool_size: 48M
 mysql_innodb_log_file_size: 30M
